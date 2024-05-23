@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "titillium", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0910ee;
+}
+.game-status{
+    background: lightblue;
+    color: black;
+}
+
+#player-name{
+    width: 50%;
+    text-align: right;
+}
+
+.game-box {
+  background: rgb(23, 237, 15);
+  color: white;
+  text-align: center;
+  margin: 100px auto 0;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.question-answer h2 {
+  font-weight: 20px;
+  color: black;
+  font-weight: 500;
+  padding: 25px 0;
+  border-top: 25px;
+  border-bottom: 25px;
+  margin: 5px;
+}
+
+.answer-boxes {
+  background: rgb(23, 237, 15);
+  color: white;
+  text-align: center;
+  margin: 25px auto 0;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+  padding: 10px;
+}
+.btn {
+  background: white;
+  color: black;
+  font-weight: 500;
+  width: 80%;
+  border: .5px solid;
+  border-radius: 6px;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  transition: 0.4;
+}
+
+.btn:hover {
+  background: black;
+  color: white;
+}
+
+#skip-btn {
+  background: white;
+  color: black;
+  font-weight: 500;
+  width: 100px;
+  border: 0.5px solid;
+  padding: 10px;
+  margin: 20px auto 0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.4;
+}
+
+#skip-btn:hover {
+background: black;
+color: white;
+}
