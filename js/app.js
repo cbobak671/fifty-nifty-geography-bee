@@ -1,11 +1,11 @@
 /*-------------------------------- Constants --------------------------------*/
 const roundOneQuestions = [
   {
-    question: "",
+    question: "What is the 50th State?",
     answers: [
-      { text: "", correct: false },
-      { text: "", correct: false },
-      { text: "", correct: false },
+      { text: "Virginia", correct: false },
+      { text: "Hawaii", correct: true },
+      { text: "Puerto Rico", correct: false },
     ],
   },
   {
@@ -167,11 +167,12 @@ const roundTwoQuestions = [
 
 /*---------------------------- Variables (state) ----------------------------*/
 const questionEl = document.getElementById("question");
-const answerBtn = document.getElementById("answers");
+const answerBtns = document.getElementById("answers");
 const skipBtnEl = document.getElementById("skip-btn");
 
 let currentQuestionIdx = 0;
 let score = 0;
+let round = 0;
 
 /*------------------------ Cached Element References ------------------------*/
 
@@ -179,15 +180,32 @@ let score = 0;
 function startGame() {
   currentQuestionIdx = 0;
   score = 0;
+  round = 1;
   skipBtnEl.innerHTML = "Skip";
-  nextQuestion();
+  displayQuestion();
 }
 
-function nextQuestion(){
-    let currentQuestion = questions[currentQuestionIdx];
-    let questionIdx = currentQuestionIdx + 1;
-    questionEl.innerHTML = questionIdx + '. ' + currentQuestion.question;
+function displayQuestion() {
+  resetQuestion();
+  let currentQuestion = roundOneQuestions[currentQuestionIdx];
+  let currentQuestionNumber = currentQuestionIdx + 1;
+  questionEl.innerHTML =
+    currentQuestionNumber + ". " + currentQuestion.question;
+
+  currentQuestion.answers.forEach((answer) => {
+    const button = document.createElement("button");
+    button.innerHTML = answer.text;
+    button.classList.add("btn");
+    answers.appendChild(button);
+  });
 }
 
-function 
+function resetQuestion(){
+    skipBtnEl.style.display = 'none';
+    while(answerBtns.firstChild){
+        answerBtns.removeChild(answerBtns.firstChild);
+    }
+}
+
+startGame();
 /*----------------------------- Event Listeners -----------------------------*/

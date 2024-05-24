@@ -8,18 +8,60 @@
 body {
   background: #0910ee;
 }
-.game-status{
-    background: lightblue;
-    color: black;
+
+style.background-image{
+    background-repeat: no-repeat;
+}
+.game-status-box {
+  background: rgb(66, 80, 144);
+  color: rgb(66, 80, 144);
+  margin: 25px auto 25px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
-#player-name{
-    width: 50%;
-    text-align: right;
+#score {
+  background: white;
+  text-align: center;
+  margin: 25px;
+  max-width: 250px;
+  border-radius: 10px;
+  border: 0.5px solid;
+  padding: 10px;
 }
 
+#player-name {
+  background: white;
+  text-align: center;
+  margin: 25px;
+  max-width: 250px;
+  border-radius: 10px;
+  border: 0.5px solid;
+  padding: 10px;
+}
+
+#round-count {
+    background: white;
+    text-align: center;
+    margin: 25px;
+    max-width: 250px;
+    border-radius: 10px;
+    border: 0.5px solid;
+    padding: 10px;
+  }
+
+#question-count {
+  background: white;
+  text-align: center;
+  margin: 25px;
+  max-width: 250px;
+  border-radius: 10px;
+  border: 0.5px solid;
+  padding: 10px;
+}
 .game-box {
-  background: rgb(23, 237, 15);
+  background: rgb(66, 80, 144);
   color: white;
   text-align: center;
   margin: 100px auto 0;
@@ -31,7 +73,7 @@ body {
 
 .question-answer h2 {
   font-weight: 20px;
-  color: black;
+  color: white;
   font-weight: 500;
   padding: 25px 0;
   border-top: 25px;
@@ -39,8 +81,8 @@ body {
   margin: 5px;
 }
 
-.answer-boxes {
-  background: rgb(23, 237, 15);
+.answer-box {
+  background: rgb(66, 80, 144);
   color: white;
   text-align: center;
   margin: 25px auto 0;
@@ -49,12 +91,13 @@ body {
   border-radius: 10px;
   padding: 10px;
 }
+
 .btn {
   background: white;
   color: black;
   font-weight: 500;
   width: 80%;
-  border: .5px solid;
+  border: 0.5px solid;
   border-radius: 6px;
   padding: 10px;
   margin: 5px;
@@ -63,7 +106,7 @@ body {
 }
 
 .btn:hover {
-  background: black;
+  background: #0910ee;
   color: white;
 }
 
@@ -78,9 +121,11 @@ body {
   border-radius: 6px;
   cursor: pointer;
   transition: 0.4;
+  display: flex;
+  justify-content: center;
 }
 
 #skip-btn:hover {
-background: black;
-color: white;
+  background: rgb(233, 90, 90);
+  color: white;
 }
