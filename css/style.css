@@ -1,7 +1,9 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "titillium", sans-serif;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   box-sizing: border-box;
 }
 
@@ -9,8 +11,8 @@ body {
   background: #0910ee;
 }
 
-style.background-image{
-    background-repeat: no-repeat;
+style.background-image {
+  background-repeat: no-repeat;
 }
 .game-status-box {
   background: rgb(66, 80, 144);
@@ -42,14 +44,14 @@ style.background-image{
 }
 
 #round-count {
-    background: white;
-    text-align: center;
-    margin: 25px;
-    max-width: 250px;
-    border-radius: 10px;
-    border: 0.5px solid;
-    padding: 10px;
-  }
+  background: white;
+  text-align: center;
+  margin: 25px;
+  max-width: 250px;
+  border-radius: 10px;
+  border: 0.5px solid;
+  padding: 10px;
+}
 
 #question-count {
   background: white;
