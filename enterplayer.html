@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enter Player Name</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/startgame.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
+    </style>
+  </head>
+  <body>
+    <div>
+      <h3 id="lets-play">Let's play...</h3>
+    </div>
+    <div id="game-title-enter-player-page">
+      <h1>Fifty Nifty United States</h1>
+      <h3 id="game-tag">Live your geography bee fantasy! Test your knowledge of the 50 states and hundreds of U.S. National Parks!</h3>
+    </div>
+    <div class="container">
+      <div id="player-info" class="flex-center flex-column">
+        <h2>Enter Your Name to Play</h2>
+        <form class="enter-name-form">
+          <input
+            type="text"
+            id="playername"
+            name="enter-name"
+            placeholder="Enter Your Name"
+          />
+          <button id="enterNameBtn" class="btn" type="submit" disabled>
+            <a href="/startgame.html" id="play-game-btn" class="btn"
+              >Play Game</a
+            >
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
