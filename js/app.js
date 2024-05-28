@@ -7,6 +7,7 @@ const roundOneQuestions = [
       { text: "Hawaii", correct: true },
       { text: "Puerto Rico", correct: false },
     ],
+    points: 10,
   },
   {
     question: "Which state's nickname is the Empire State?",
@@ -23,6 +24,7 @@ const roundOneQuestions = [
       { text: "Minnesota", correct: true },
       { text: "Nevada", correct: false },
     ],
+    points: 10,
   },
   {
     question:
@@ -32,6 +34,7 @@ const roundOneQuestions = [
       { text: "Snake, Columbia", correct: false },
       { text: "Missouri, Mississippi", correct: true },
     ],
+    points: 10,
   },
   {
     question: "Washington state is home to Tahoma, also known as: ",
@@ -40,6 +43,7 @@ const roundOneQuestions = [
       { text: "Mt. Hood", correct: false },
       { text: "Mt. St. Helens", correct: false },
     ],
+    points: 10,
   },
   {
     question: "Which state was the first to be admitted to the union?",
@@ -86,7 +90,7 @@ const roundOneQuestions = [
   },
   {
     question:
-      "What is the name of the national park in which the longest cave sytem in the U.S. can be found?",
+      "What is the name of the national park in which the longest cave system in the U.S. can be found?",
     answers: [
       { text: "Mammoth Caves National Park", correct: true },
       { text: "Longest Cave in the World National Park", correct: false },
@@ -177,7 +181,7 @@ const roundOneQuestions = [
 ];
 
 /*---------------------------- Variables (state) ----------------------------*/
-const playerNameEl = document.getElementById("player-name");
+
 const questionEl = document.querySelector(".questions");
 const answerBtns = document.getElementById("answers");
 const skipBtnEl = document.getElementById("skip-btn");
@@ -195,15 +199,15 @@ let questionCounter = 0;
 
 /*-------------------------------- Functions --------------------------------*/
 
+
 function startGame() {
-  playerNameEl.innerHTML = `${playerNameEl.innerHTML}`;
   currentQuestionIdx = 0;
   scoreText.HTML = `Score: 0`;
   round = 1;
   questionCounter = 1;
   skipBtnEl.innerHTML = "Next Question";
   questionCount.innerHTML = `Question: ${questionCounter} of 20`;
-  roundTracker.innerHTML = `Round 1`;
+  roundTracker.innerHTML = `Round ${1}`;
   scoreText.innerHTML = `Score: ${playerScore}`;
   displayQuestion();
 }
@@ -223,6 +227,7 @@ function displayQuestion() {
     }
     button.addEventListener("click", clickedAnswer);
   });
+  updateRound();
 }
 
 function showCurrentAnswers() {
@@ -232,12 +237,20 @@ function showCurrentAnswers() {
   }
 }
 
+function updateRound() {
+  if (currentQuestionIdx === 10) roundTracker.innerHTML = `Round 2`;
+}
+
 function clickedAnswer(e) {
   const clickedBtn = e.target;
   const correctAnswer = clickedBtn.dataset.correct === "true";
-  if (correctAnswer) {
+  if (correctAnswer && currentQuestionIdx < 10) {
     clickedBtn.classList.add("correct");
     playerScore += 10;
+    scoreText.innerHTML = `Score: ${playerScore}`;
+  } else if (correctAnswer && currentQuestionIdx >= 10) {
+    clickedBtn.classList.add("correct");
+    playerScore += 20;
     scoreText.innerHTML = `Score: ${playerScore}`;
   } else {
     clickedBtn.classList.add("incorrect");
@@ -253,9 +266,14 @@ function clickedAnswer(e) {
 
 function showScore() {
   showCurrentAnswers();
-  questionEl.innerHTML = `You scored ${playerScore} points!`;
-  skipBtnEl.innerHTML = "Restart Game!";
+  if (playerScore >= 200) {
+    questionEl.innerHTML = `You scored ${playerScore} points! You're a winner, baby!`;
+  } else if (playerScore < 200) {
+    questionEl.innerHTML = `Womp womp. You didn't score enough points to be a winner, baby. Try again!`;
+  }
+  skipBtnEl.innerHTML = "Start Over!";
   skipBtnEl.style.display = "block";
+  playerScore = 0;
 }
 
 function handleSkipBtn() {

@@ -61,19 +61,25 @@ input {
   border: 0.5px white solid;
 }
 
-#enterNameBtn:hover{
-    background: rgb(91, 233, 91);
+#enterNameBtn:hover {
+  background: rgb(91, 233, 91);
 }
 
 #play-game-btn {
   width: 50%;
   border-radius: 5px;
-  border: none;
+  border: solid white 0.5px;
   text-decoration: none;
+  text-align: center;
+  background: white;
+  color: black;
+  font-size: 30px;
+  margin-top: 5px;
 }
 
-#play-game-btn:hover{
-    background:rgb(91, 233, 91);
+#play-game-btn:hover {
+  background: rgb(91, 233, 91);
+  color: white;
 }
 /* Start Game Page */
 
@@ -126,6 +132,7 @@ style.background-image {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  font-size: 20px;
 }
 
 #score {
@@ -138,7 +145,7 @@ style.background-image {
   padding: 10px;
 }
 
-#player-name {
+#playerNameBox {
   background: white;
   text-align: center;
   margin: 25px;
@@ -175,11 +182,13 @@ style.background-image {
   width: 80%;
   max-width: 500px;
   border-radius: 10px;
+  border: solid white 0.5px;
   padding: 10px;
 }
 
 .question-answer h2 {
   font-weight: 20px;
+  font-size: 25px;
   color: white;
   font-weight: 500;
   padding: 25px 0;
@@ -196,6 +205,7 @@ style.background-image {
   width: 80%;
   max-width: 500px;
   border-radius: 10px;
+  border: solid white 0.5px;
   padding: 10px;
 }
 
@@ -203,6 +213,7 @@ style.background-image {
   background: white;
   color: black;
   font-weight: 500;
+  font-size: 20px;
   width: 80%;
   border: 0.5px solid;
   border-radius: 6px;
@@ -212,6 +223,10 @@ style.background-image {
   transition: 0.4;
 }
 
+.btn:hover {
+  box-shadow: 0 0.2rem 1.2rem 0;
+}
+
 .btn:hover([disabled]) {
   background: #0910ee;
   color: white;
@@ -219,13 +234,15 @@ style.background-image {
 
 .btn:disabled {
   cursor: no-drop;
+  box-shadow: none;
 }
 
 #skip-btn {
   background: white;
   color: black;
   font-weight: 500;
-  width: 25%;
+  font-size: 20px;
+  width: 50%;
   border: 0.5px solid;
   padding: 10px;
   margin: 20px auto 0;
@@ -239,6 +256,7 @@ style.background-image {
 #skip-btn:hover {
   background: rgb(91, 233, 91);
   color: black;
+  box-shadow: 0 0.2rem 1.2rem 0;
 }
 
 .correct {
@@ -247,4 +265,9 @@ style.background-image {
 
 .incorrect {
   background: rgb(239, 125, 125);
+}
+
+#winner-message {
+  color: white;
+  display: none;
 }
