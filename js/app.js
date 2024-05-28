@@ -60,6 +60,7 @@ const roundOneQuestions = [
       { text: "Maine, Massachusetts, New Hampshire, Vermont", correct: false },
       { text: "Alaska, Hawaii, Maine, Florida", correct: false },
     ],
+    points: 10,
   },
   {
     question:
@@ -69,6 +70,7 @@ const roundOneQuestions = [
       { text: "Kentucky", correct: true },
       { text: "Arkansas", correct: false },
     ],
+    points: 10,
   },
   {
     question:
@@ -78,6 +80,7 @@ const roundOneQuestions = [
       { text: "Michigan", correct: false },
       { text: "South Carolina", correct: false },
     ],
+    points: 10,
   },
   {
     question:
@@ -87,6 +90,7 @@ const roundOneQuestions = [
       { text: "Oregon", correct: false },
       { text: "Wyoming", correct: true },
     ],
+    points: 10,
   },
   {
     question:
@@ -96,6 +100,7 @@ const roundOneQuestions = [
       { text: "Longest Cave in the World National Park", correct: false },
       { text: "Caves Caves Caves National Park", correct: false },
     ],
+    points: 20,
   },
   {
     question:
@@ -105,6 +110,7 @@ const roundOneQuestions = [
       { text: "Lake Baikal", correct: false },
       { text: "Crater Lake", correct: true },
     ],
+    points: 20,
   },
   {
     question:
@@ -114,6 +120,7 @@ const roundOneQuestions = [
       { text: "Yellowtone", correct: true },
       { text: "Yosemite", correct: false },
     ],
+    points: 20,
   },
   {
     question:
@@ -126,6 +133,7 @@ const roundOneQuestions = [
         correct: true,
       },
     ],
+    points: 20,
   },
   {
     question: "Which is the largest national park in the lower-48?",
@@ -134,6 +142,7 @@ const roundOneQuestions = [
       { text: "Denali National Park", correct: false },
       { text: "Olympic National Park", correct: false },
     ],
+    points: 20,
   },
   {
     question:
@@ -152,6 +161,7 @@ const roundOneQuestions = [
       { text: "Jane Goodall", correct: false },
       { text: "John Muir", correct: true },
     ],
+    points: 20,
   },
   {
     question: "How many National Parks are there in the U.S.?",
@@ -160,6 +170,7 @@ const roundOneQuestions = [
       { text: "429", correct: true },
       { text: "367", correct: false },
     ],
+    points: 20,
   },
   {
     question: "Which of these parks is NOT located at or near the ocean?",
@@ -168,6 +179,7 @@ const roundOneQuestions = [
       { text: "War in the Pacific National Historical Park", correct: false },
       { text: "Capitol Reef National Park", correct: true },
     ],
+    points: 20,
   },
   {
     question:
@@ -177,6 +189,7 @@ const roundOneQuestions = [
       { text: "Everglades National Park", correct: false },
       { text: "Great Smoky Mountains National Park", correct: true },
     ],
+    points: 20,
   },
 ];
 
@@ -205,9 +218,9 @@ function startGame() {
   currentQuestionIdx = 0;
   scoreText.HTML = `Score: 0`;
   round = 1;
-  questionCounter = 1;
+  questionCounter = 0;
   skipBtnEl.innerHTML = "Next Question";
-  questionCount.innerHTML = `Question: ${questionCounter} of 20`;
+  questionCount.innerHTML = `Answered: ${questionCounter} of 20`;
   roundTracker.innerHTML = `Round ${1}`;
   scoreText.innerHTML = `Score: ${playerScore}`;
   displayQuestion();
@@ -264,6 +277,7 @@ function clickedAnswer(e) {
   });
   skipBtnEl.style.display = "block";
 }
+
 function playWinnerMusic() {
   let audioWinner = playWinner;
   audioWinner.play();
@@ -296,7 +310,7 @@ function handleSkipBtn() {
     showScore();
   }
   questionCounter++;
-  questionCount.innerHTML = `Question ${questionCounter} of 20`;
+  questionCount.innerHTML = `Answered: ${questionCounter} of 20`;
 }
 
 skipBtnEl.addEventListener("click", () => {
@@ -306,4 +320,5 @@ skipBtnEl.addEventListener("click", () => {
     startGame();
   }
 });
+
 startGame();
