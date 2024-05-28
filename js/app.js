@@ -19,7 +19,7 @@ const roundOneQuestions = [
   {
     question: "Which state is known for its 10,000 lakes?",
     answers: [
-      { text: "Alasak", correct: false },
+      { text: "Alaska", correct: false },
       { text: "Minnesota", correct: true },
       { text: "Nevada", correct: false },
     ],
@@ -67,7 +67,8 @@ const roundOneQuestions = [
     ],
   },
   {
-    question: "In which state is the deepest lake in Unites States located?",
+    question:
+      "In which state is the deepest lake in the United States located?",
     answers: [
       { text: "Oregon", correct: true },
       { text: "Michigan", correct: false },
@@ -83,12 +84,9 @@ const roundOneQuestions = [
       { text: "Wyoming", correct: true },
     ],
   },
-];
-
-const roundTwoQuestions = [
   {
     question:
-      "What is the name of the national park where the longest cave sytem in the U.S. can be found?",
+      "What is the name of the national park in which the longest cave sytem in the U.S. can be found?",
     answers: [
       { text: "Mammoth Caves National Park", correct: true },
       { text: "Longest Cave in the World National Park", correct: false },
@@ -105,16 +103,17 @@ const roundTwoQuestions = [
     ],
   },
   {
-    question: "Which National Park is the first official U.S. National Park?",
+    question:
+      "Which National Park was the first official park designated a National Park?",
     answers: [
-      { text: "Arcadia", correct: false },
+      { text: "Acadia", correct: false },
       { text: "Yellowtone", correct: true },
       { text: "Yosemite", correct: false },
     ],
   },
   {
     question:
-      "Which US National Park service site is the smallest at just .02 acres?",
+      "Which US National Park service site is the smallest at just 0.02 acres?",
     answers: [
       { text: "Gateway Arch National Park, Missouri", correct: false },
       { text: "Medgar-Myrlie Evers Home, New Mexico", correct: false },
@@ -155,7 +154,7 @@ const roundTwoQuestions = [
     answers: [
       { text: "50", correct: false },
       { text: "429", correct: true },
-      { text: "1,152", correct: false },
+      { text: "367", correct: false },
     ],
   },
   {
@@ -178,60 +177,140 @@ const roundTwoQuestions = [
 ];
 
 /*---------------------------- Variables (state) ----------------------------*/
-const questionEl = document.getElementById("question");
+const playerNameEl = document.getElementById("player-name");
+const questionEl = document.querySelector(".questions");
 const answerBtns = document.getElementById("answers");
 const skipBtnEl = document.getElementById("skip-btn");
+const scoreText = document.querySelector("#score");
+const questionCount = document.getElementById("question-count");
+const roundTracker = document.getElementById("round-count");
+const totalQuestions = 20;
 
+let playerName = "";
 let currentQuestionIdx = 0;
 let playerScore = 0;
 let correctAnswerPoints = 10;
 let round = "";
-let questionCount = 0;
-/*------------------------ Cached Element References ------------------------*/
+let questionCounter = 0;
 
 /*-------------------------------- Functions --------------------------------*/
+
 function startGame() {
+  playerNameEl.innerHTML = `${playerNameEl.innerHTML}`;
   currentQuestionIdx = 0;
-  playerScore = 0;
+  scoreText.HTML = `Score: 0`;
   round = 1;
-  skipBtnEl.innerHTML = "Skip";
+  questionCounter = 1;
+  skipBtnEl.innerHTML = "Next Question";
+  questionCount.innerHTML = `Question: ${questionCounter} of 20`;
+  roundTracker.innerHTML = `Round 1`;
+  scoreText.innerHTML = `Score: ${playerScore}`;
   displayQuestion();
 }
 
 function displayQuestion() {
-  resetQuestion();
+  showCurrentAnswers();
   let currentQuestion = roundOneQuestions[currentQuestionIdx];
-  let currentQuestionNumber = currentQuestionIdx + 1;
-  questionEl.innerHTML =
-    currentQuestionNumber + ". " + currentQuestion.question;
-
+  let questionNumber = currentQuestionIdx + 1;
+  questionEl.innerHTML = questionNumber + ". " + currentQuestion.question;
   currentQuestion.answers.forEach((answer) => {
     const button = document.createElement("button");
     button.innerHTML = answer.text;
     button.classList.add("btn");
-    answers.appendChild(button);
-    button.addEventListener("click", chooseAnswer);
+    answerBtns.appendChild(button);
+    if (answer.correct) {
+      button.dataset.correct = answer.correct;
+    }
+    button.addEventListener("click", clickedAnswer);
   });
 }
 
-function resetQuestion() {
+function showCurrentAnswers() {
   skipBtnEl.style.display = "none";
   while (answerBtns.firstChild) {
     answerBtns.removeChild(answerBtns.firstChild);
   }
 }
 
+function clickedAnswer(e) {
+  const clickedBtn = e.target;
+  const correctAnswer = clickedBtn.dataset.correct === "true";
+  if (correctAnswer) {
+    clickedBtn.classList.add("correct");
+    playerScore += 10;
+    scoreText.innerHTML = `Score: ${playerScore}`;
+  } else {
+    clickedBtn.classList.add("incorrect");
+  }
+  Array.from(answerBtns.children).forEach((button) => {
+    if (button.dataset.correct === "true") {
+      button.classList.add("correct");
+    }
+    button.disabled = "true";
+  });
+  skipBtnEl.style.display = "block";
+}
+
+function showScore() {
+  showCurrentAnswers();
+  questionEl.innerHTML = `You scored ${playerScore} points!`;
+  skipBtnEl.innerHTML = "Restart Game!";
+  skipBtnEl.style.display = "block";
+}
+
+function handleSkipBtn() {
+  currentQuestionIdx++;
+  if (currentQuestionIdx < roundOneQuestions.length) {
+    displayQuestion();
+  } else {
+    showScore();
+  }
+  questionCounter++;
+  questionCount.innerHTML = `Question ${questionCounter} of 20`;
+}
+
+skipBtnEl.addEventListener("click", () => {
+  if (currentQuestionIdx < roundOneQuestions.length) {
+    handleSkipBtn();
+  } else {
+    startGame();
+  }
+});
 startGame();
 
-// functions to create:
-// (a) function to welcome player;
-// function welcome() { }
-// (b) function to add player details and update player name;
-// (c) function to display rules of the game;
-// (d) function to keep and add to score;
-// (e) function to tally question count; switch game to Round 2 and update round number;
-// (f) funciton to play music when player wins or loses
-// (g) function to restart game when game ends
-/*----------------------------- Event Listeners -----------------------------*/
+// function resetQuestion() {
+//   skipBtnEl.style.display = "block";
+//   while (answerBtns.firstChild) {
+//     answerBtns.removeChild(answerBtns.firstChild);
+//   }
+//   questionCounter++;
+//   questionCount.innerText = `Question ${questionCounter} of 10`;
+// }
 
-function chooseAnswer(e) {}
+// function chooseAnswer(e) {
+//   const clickedAnswer = e.target;
+//   const correctAnswer = clickedAnswer.dataset.correct === "true";
+//   if (correctAnswer) {
+//     clickedAnswer.classList.add("correct");
+//   } else {
+//     clickedAnswer.classList.add("incorrect");
+//   }
+//   Array.from(answerBtns.children).forEach((btn) => {
+//     if (btn.dataset.correct === "true") {
+//       btn.classList.add("correct");
+//     }
+//     btn.disabled = true;
+//   });
+//   skipBtnEl.style.display = "block";
+// }
+
+// // functions to create:
+// // (a) function to welcome player;
+// // function welcome() { }
+// // (b) function to add player details and update player name;
+// // (c) function to display rules of the game;
+// // (d) function to keep and add to score;
+// // (e) function to tally question count; switch game to Round 2 and update round number;
+// // (f) funciton to play music when player wins or loses
+// // (g) function to restart game when game ends
+// /*----------------------------- Event Listeners -----------------------------*/
