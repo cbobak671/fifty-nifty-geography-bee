@@ -205,7 +205,7 @@ const questionCount = document.getElementById("question-count");
 const roundTracker = document.getElementById("round-count");
 const totalQuestions = 20;
 
-let playerName = "";
+let playerName;
 let currentQuestionIdx = 0;
 let playerScore = 0;
 let correctAnswerPoints = 10;

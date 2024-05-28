@@ -1,8 +1,12 @@
-const playerNameEl = document.getElementById("playerName");
-const playerNameBtn = document.getElementById("enterNameBtn");
-const playerNameDisplay = document.getElementById("playerNameBox");
+let userName;
 
-document.getElementById("enterNameBtn").onClick = function(){
-    playerNameEl = document.getElementById("playerName").value;
-    document.getElementById("playerNameBox").textContent = `${playerNameEl}`;
+function getUserName(e) {
+  e.preventDefault();
+  userName = e.target["enter-name"].value;
+  console.log(userName);
+  window.open("./gamerules.html")
 }
+
+const form = document.querySelector(".enter-name-form");
+form.addEventListener("submit", getUserName);
+
