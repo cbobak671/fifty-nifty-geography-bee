@@ -29,6 +29,7 @@ Playing Fifty Nifty United States is as easy as entering your playerName and hit
 
 Planned future enhancements and updates include:
 
-1. Adding a timer to limit player time per question
-2. Adding 'skip' and 'previous' question buttons to allow players to skip ahead or return to a prior unanswered question
-3. Add an option to save scores
+1. Adding a timer to limit player time per question.
+2. Adding 'skip' and 'previous' question buttons to allow players to skip ahead or return to a prior unanswered question.
+3. Add an option to save scores.
+4. Add button at end of game to enter new player and restart game.
