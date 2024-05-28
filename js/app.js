@@ -119,7 +119,7 @@ const roundOneQuestions = [
       "Which National Park was the first official park designated a National Park?",
     answers: [
       { text: "Acadia", correct: false },
-      { text: "Yellowtone", correct: true },
+      { text: "Yellowstone", correct: true },
       { text: "Yosemite", correct: false },
     ],
     points: 20,
@@ -290,7 +290,7 @@ function playLoserMusic() {
   audioLoser.play();
 }
 
-function showScore() {
+function showFinalScore() {
   showCurrentAnswers();
   if (playerScore >= 200) {
     questionEl.innerHTML = `You scored ${playerScore} points! You're a winner, baby!`;
@@ -309,7 +309,7 @@ function handleSkipBtn() {
   if (currentQuestionIdx < roundOneQuestions.length) {
     displayQuestion();
   } else {
-    showScore();
+    showFinalScore();
   }
   questionCounter++;
   questionCount.innerHTML = `Answered: ${questionCounter} of 20`;
