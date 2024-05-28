@@ -22,6 +22,7 @@ Fifty Nifty United States is a trivia game inspired by game creator Chris's love
 ## Attributions
 
 - YouTube Audio Library
+- Google Fonts API Library
 
 ## Getting Started & Resources
 
