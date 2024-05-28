@@ -16,6 +16,7 @@ const roundOneQuestions = [
       { text: "Oregon", correct: false },
       { text: "Florida", correct: false },
     ],
+    points: 10,
   },
   {
     question: "Which state is known for its 10,000 lakes?",
@@ -52,6 +53,7 @@ const roundOneQuestions = [
       { text: "Delaware", correct: true },
       { text: "Massachusetts", correct: false },
     ],
+    points: 10,
   },
   {
     question: "Which four states form the Four Corners states?",

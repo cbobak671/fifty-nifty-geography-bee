@@ -19,6 +19,10 @@ Fifty Nifty United States is a trivia game inspired by game creator Chris's love
 - HTML
 - CSS
 
+## Attributions
+
+- YouTube Audio Library
+
 ## Getting Started & Resources
 
 Playing Fifty Nifty United States is as easy as entering your playerName and hitting submit! Follow the game link below and get started.
