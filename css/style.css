@@ -7,9 +7,12 @@
   box-sizing: border-box;
 }
 
-body {
+style.body {
   background: rgb(66, 80, 144);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
+
 /* Enter Player Name Page */
 
 #lets-play {

@@ -54,7 +54,7 @@ const roundOneQuestions = [
     ],
   },
   {
-    question: "Which four states from the Four Corners states?",
+    question: "Which four states form the Four Corners states?",
     answers: [
       { text: "Utah, Colorado, New Mexico, Arizona", correct: true },
       { text: "Maine, Massachusetts, New Hampshire, Vermont", correct: false },
