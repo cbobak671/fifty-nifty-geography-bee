@@ -148,7 +148,7 @@ const roundOneQuestions = [
     question:
       "Which famous writer, naturalist, and conservationist is credited with establishing the National Park System?",
     answers: [
-      { text: "Teddy Roosevelt", correct: false },
+      { text: "David Attenborough", correct: false },
       { text: "Jane Goodall", correct: false },
       { text: "John Muir", correct: true },
     ],
@@ -196,9 +196,10 @@ let playerScore = 0;
 let correctAnswerPoints = 10;
 let round = "";
 let questionCounter = 0;
+let playWinner = document.getElementById("winnerMusic");
+let playLoser = document.getElementById("loserMusic");
 
 /*-------------------------------- Functions --------------------------------*/
-
 
 function startGame() {
   currentQuestionIdx = 0;
@@ -263,13 +264,24 @@ function clickedAnswer(e) {
   });
   skipBtnEl.style.display = "block";
 }
+function playWinnerMusic() {
+  let audioWinner = playWinner;
+  audioWinner.play();
+}
+
+function playLoserMusic() {
+  let audioLoser = playLoser;
+  audioLoser.play();
+}
 
 function showScore() {
   showCurrentAnswers();
   if (playerScore >= 200) {
     questionEl.innerHTML = `You scored ${playerScore} points! You're a winner, baby!`;
+    playWinnerMusic();
   } else if (playerScore < 200) {
     questionEl.innerHTML = `Womp womp. You didn't score enough points to be a winner, baby. Try again!`;
+    playLoserMusic();
   }
   skipBtnEl.innerHTML = "Start Over!";
   skipBtnEl.style.display = "block";
@@ -295,40 +307,3 @@ skipBtnEl.addEventListener("click", () => {
   }
 });
 startGame();
-
-// function resetQuestion() {
-//   skipBtnEl.style.display = "block";
-//   while (answerBtns.firstChild) {
-//     answerBtns.removeChild(answerBtns.firstChild);
-//   }
-//   questionCounter++;
-//   questionCount.innerText = `Question ${questionCounter} of 10`;
-// }
-
-// function chooseAnswer(e) {
-//   const clickedAnswer = e.target;
-//   const correctAnswer = clickedAnswer.dataset.correct === "true";
-//   if (correctAnswer) {
-//     clickedAnswer.classList.add("correct");
-//   } else {
-//     clickedAnswer.classList.add("incorrect");
-//   }
-//   Array.from(answerBtns.children).forEach((btn) => {
-//     if (btn.dataset.correct === "true") {
-//       btn.classList.add("correct");
-//     }
-//     btn.disabled = true;
-//   });
-//   skipBtnEl.style.display = "block";
-// }
-
-// // functions to create:
-// // (a) function to welcome player;
-// // function welcome() { }
-// // (b) function to add player details and update player name;
-// // (c) function to display rules of the game;
-// // (d) function to keep and add to score;
-// // (e) function to tally question count; switch game to Round 2 and update round number;
-// // (f) funciton to play music when player wins or loses
-// // (g) function to restart game when game ends
-// /*----------------------------- Event Listeners -----------------------------*/
